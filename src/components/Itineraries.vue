@@ -159,27 +159,16 @@
             Places
         },
         methods: {
-            getItineraries() {
+            calculateItineraries(payload){
+                this.itineraries = [];
                 const path = 'https://gpsapp-pooa-back-2.herokuapp.com/itineraries';
-                axios.get(path)
+                axios.post(path, payload)
                     .then((res) => {
                         this.itineraries = res.data.itineraries;
                     })
                     .catch((error) => {
                         // eslint-disable-next-line
-                        console.error(error);
-                    });
-            },
-            calculateItineraries(payload){
-                const path = 'https://gpsapp-pooa-back-2.herokuapp.com/itineraries';
-                axios.post(path, payload)
-                    .then(() => {
-                        this.getItineraries();
-                    })
-                    .catch((error) => {
-                        // eslint-disable-next-line
                         console.log(error);
-                        this.getItineraries();
                     });
             },
             onSubmit(evt) {
