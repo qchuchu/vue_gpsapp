@@ -2,12 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-10 offset-1">
-                <div class="text-center">
-                    <b-jumbotron
-                            header="CentraleMapper"
-                            lead="Le meilleur site pour trouver son chemin !"
-                            id="leadJumbotron"
-                    ></b-jumbotron>
+                <div class="text-center mb-5">
+                    <img src="../assets/deer.png" class="deer-logo">
                 </div>
                 <div class="text-center">
                     <b-button v-b-modal.itineraries-modal class="btn btn-success">Nouvel Itinéraire</b-button>
@@ -35,7 +31,6 @@
                 title="Calcul d'un nouvel itinéraire"
                 hide-footer>
             <b-form class="w-100" @submit="onSubmit">
-
                 <!-- Origin -->
                 <b-form-group id="form-origin-group"
                         label="Origine:"
@@ -103,13 +98,12 @@
                             v-model="itinerariesForm.disabled"
                             value=true
                             unchecked-value=false
+                            button-variant="success"
                     >Je suis handicapé</b-form-checkbox>
                 </b-form-group>
-
                 <b-button-group>
-                    <b-button type="submit" variant="primary">Calculer</b-button>
+                    <b-button type="submit" variant="success">Calculer</b-button>
                 </b-button-group>
-
             </b-form>
         </b-modal>
     </div>
@@ -170,6 +164,7 @@
                     .then((res) => {
                         this.itineraries = res.data.itineraries;
                         this.loading = false;
+                        this.resetForm();
                     })
                     .catch((error) => {
                         // eslint-disable-next-line
@@ -189,8 +184,18 @@
                     loaded: this.itinerariesForm.loaded,
                     disabled: this.itinerariesForm.disabled
                 }
+                this.initForm();
                 this.calculateItineraries(payload);
             },
+            initForm() {
+                this.itinerariesForm.origin = [];
+                this.itinerariesForm.destination = [];
+                this.itinerariesForm.vehicles = [];
+                this.itinerariesForm.mode = "fastest";
+                this.itinerariesForm.alone = true;
+                this.itinerariesForm.loaded = false;
+                this.itinerariesForm.disabled = false;
+            }
         }
     }
 </script>
@@ -200,7 +205,18 @@
     background: rgba(255, 255, 255, 0.7);
 }
 
+.deer-logo {
+    height: 200px;
+    width: 200px;
+}
+
 .leg {
     border: 0px;
+}
+
+.my-buttons .active {
+    color: #fff !important;
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
 }
 </style>
