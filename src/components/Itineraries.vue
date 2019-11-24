@@ -13,6 +13,9 @@
                     <b-button v-b-modal.itineraries-modal class="btn btn-success">Nouvel Itinéraire</b-button>
                 </div>
                 <br>
+                <div v-if ="loading" class="text-center">
+                    <b-spinner  variant="success" label="Spinning" ></b-spinner>
+                </div>
                 <div class="card mb-3" v-for="(itinerary, index) in itineraries" :key="index">
                     <div class="card-header text-center">
                         <h3>{{typeMapping[itinerary.type]}}</h3>
@@ -131,7 +134,7 @@
                     loaded: false,
                     disabled: false
                 },
-
+                loading: false,
                 optionsVehicles: [
                     { text: 'Voiture', value: 'car'},
                     { text: 'Vélo', value: 'bike'},
@@ -160,15 +163,18 @@
         },
         methods: {
             calculateItineraries(payload){
+                this.loading = true;
                 this.itineraries = [];
                 const path = 'https://gpsapp-pooa-back-2.herokuapp.com/itineraries';
                 axios.post(path, payload)
                     .then((res) => {
                         this.itineraries = res.data.itineraries;
+                        this.loading = false;
                     })
                     .catch((error) => {
                         // eslint-disable-next-line
                         console.log(error);
+                        this.loading = false;
                     });
             },
             onSubmit(evt) {

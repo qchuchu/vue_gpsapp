@@ -3,7 +3,6 @@
         <div class="container">
            <div class="row d-flex align-items-center">
                <div class="row col-2">
-
                    <div class="col-6">
                        <img :src="transportModeImage" v-bind:alt="legInfo.mode.line" class="typeLogo">
                    </div>
