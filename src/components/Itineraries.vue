@@ -147,13 +147,13 @@
                     { text: 'Plus court', value: 'shortest'}
                 ],
                 typeMapping: {
-                    "publicBike": "Vélib",
+                    "publicBike": "Vélib des familles",
                     "publicTransport": "RATP Style !",
                     "pedestrian": "Petit Footing ?",
-                    "car": "En Voiture",
-                    "bike": "À Vélo",
-                    "scooter": "Trotinette Électrique",
-                    "publicScooter": "Trotinette"
+                    "car": "En Voiture Simone!",
+                    "bike": "Pas trop d'EPO à Vélo !",
+                    "scooter": "Jean-Kevin ? On prend ta Trott ?",
+                    "publicScooter": "Cassiopée ? On s'prend une Lime ?"
                 }
             };
         },
