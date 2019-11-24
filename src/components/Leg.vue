@@ -72,7 +72,7 @@
                 try {
                     return require(`@/assets/${transportMode}.png`);
                 } catch (e) {
-                    return require(`@/assets/bus.png`)
+                    return require(`@/assets/not_found.jpg`)
                 }
             },
             lineImage() {
@@ -81,7 +81,7 @@
                 try {
                     return require(`@/assets/${transportMode}${line}.png`);
                 } catch (e) {
-                    return require(`@/assets/bus.png`)
+                    return require(`@/assets/not_found.jpg`)
                 }
             },
             providerImage() {
@@ -89,7 +89,7 @@
                 try {
                     return require(`@/assets/${provider}.png`);
                 } catch (e) {
-                    return require(`@/assets/Lime.png`)
+                    return require(`@/assets/not_found.jpg`)
                 }
             }
         }
