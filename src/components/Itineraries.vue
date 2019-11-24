@@ -160,7 +160,7 @@
         },
         methods: {
             getItineraries() {
-                const path = 'http://localhost:5000/itineraries';
+                const path = 'https://gpsapp-pooa-back-2.herokuapp.com/itineraries';
                 axios.get(path)
                     .then((res) => {
                         this.itineraries = res.data.itineraries;
@@ -171,7 +171,7 @@
                     });
             },
             calculateItineraries(payload){
-                const path = 'http://localhost:5000/itineraries';
+                const path = 'https://gpsapp-pooa-back-2.herokuapp.com/itineraries';
                 axios.post(path, payload)
                     .then(() => {
                         this.getItineraries();
