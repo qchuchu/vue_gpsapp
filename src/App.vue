@@ -11,5 +11,6 @@
 body {
   background-image: url('assets/public-transportation-bus-seats.jpg');
   background-size: cover;
+  font-family: Ubuntu, Arial;
 }
 </style>
