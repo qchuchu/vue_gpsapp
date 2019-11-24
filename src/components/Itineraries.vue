@@ -164,7 +164,6 @@
                     .then((res) => {
                         this.itineraries = res.data.itineraries;
                         this.loading = false;
-                        this.resetForm();
                     })
                     .catch((error) => {
                         // eslint-disable-next-line
@@ -184,17 +183,7 @@
                     loaded: this.itinerariesForm.loaded,
                     disabled: this.itinerariesForm.disabled
                 }
-                this.initForm();
                 this.calculateItineraries(payload);
-            },
-            initForm() {
-                this.itinerariesForm.origin = [];
-                this.itinerariesForm.destination = [];
-                this.itinerariesForm.vehicles = [];
-                this.itinerariesForm.mode = "fastest";
-                this.itinerariesForm.alone = true;
-                this.itinerariesForm.loaded = false;
-                this.itinerariesForm.disabled = false;
             }
         }
     }
