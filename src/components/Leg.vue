@@ -2,11 +2,10 @@
     <div class="card mb-3">
         <div class="container">
            <div class="row d-flex align-items-center">
-               <div class="row col-2">
+               <div class="row col-sm-2 d-flex justify-content-center">
                    <div class="col-6">
                        <img :src="transportModeImage" v-bind:alt="legInfo.mode.line" class="typeLogo">
                    </div>
-
                    <div v-if="['rail', 'train', 'bus', 'tram', 'transilien'].includes(legInfo.mode.transport_mode)" class="col-6">
                        <img :src="lineImage" v-bind:alt="legInfo.mode.line" class="typeLogo">
                    </div>
@@ -14,7 +13,7 @@
                        <img :src="providerImage" v-bind:alt="legInfo.mode.line" class="typeLogo">
                    </div>
                </div>
-               <div class="col-8 align-left">
+               <div class="col-sm-8 align-left">
                    <h5 class="legTitle">{{transportEquivalent[legInfo.mode.transport_mode]}}</h5>
                    <!-- Show information depending on the type of legs -->
                    <ul v-if="['rail', 'train', 'bus', 'tram', 'transilien'].includes(legInfo.mode.transport_mode)">
@@ -30,7 +29,7 @@
                    </ul>
 
                </div>
-               <div class="col-2 text-center">
+               <div class="col-sm-2 text-center">
                    <p class="duration">{{Math.ceil(legInfo.duration / 60)}} min</p>
                </div>
            </div>
